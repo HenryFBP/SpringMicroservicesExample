@@ -6,6 +6,7 @@ import net.henrypost.customer.model.jpa.Customer;
 @Builder
 public record CustomerRegistrationResponse(
         Customer customer,
+        String message,
         int code
 ) {
 }

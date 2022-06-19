@@ -17,6 +17,10 @@ public class CustomerService {
     private final CustomerRepository customerRepository;
     private final RestTemplate restTemplate;
 
+    public boolean isEmailTaken(String email) {
+        return !customerRepository.findCustomerByEmail(email).isEmpty();
+    }
+
     public Customer registerCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
 
         Customer customer = Customer
@@ -26,9 +30,14 @@ public class CustomerService {
                 .email(customerRegistrationRequest.email())
                 .build();
 
+
         //todo: valid email
 
-        //todo: email unique
+        //email unique
+        if (isEmailTaken(customer.getEmail())) {
+            //they have supplied a duplicate email
+            throw new IllegalArgumentException("Error! Duplicate email: " + customer);
+        }
 
         //store customer
         this.customerRepository.saveAndFlush(customer);

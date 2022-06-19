@@ -21,9 +21,19 @@ public class CustomerController {
     @PostMapping
     public CustomerRegistrationResponse registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest) {
 
-        CustomerController.log.info("new customer registered {}", customerRegistrationRequest);
 
-        Customer c = this.customerService.registerCustomer(customerRegistrationRequest);
+        if(this.customerService.isEmailTaken(customerRegistrationRequest.email())){
+            return CustomerRegistrationResponse
+                    .builder()
+                    .message("Error: Email %s is taken.".formatted(customerRegistrationRequest.email()))
+                    .code(400)
+                    .build();
+        }
+
+
+            Customer c = this.customerService.registerCustomer(customerRegistrationRequest);
+
+        CustomerController.log.info("new customer registered {}", customerRegistrationRequest);
 
         return CustomerRegistrationResponse
                 .builder()
