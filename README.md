@@ -1,7 +1,36 @@
-# VirtualMachineConfigs
+# Spring Cloud Microservices Example
 
-A collection of Vagrant/Packer/Helm/Docker builds I use.
+taken from amigoscode with <3
 
-No license, I only request you link to this original repo.
+![https://www.youtube.com/watch?v=p485kUNpPvE&list=PLwvrYc43l1Mwqpf9i-1B1gXfMeHOm6DeY](./img/microservice-archi.png)
 
-I don't care what you use this for but please LMK about fixes or additions/suggestions.
+- <https://www.youtube.com/watch?v=p485kUNpPvE&list=PLwvrYc43l1Mwqpf9i-1B1gXfMeHOm6DeY>
+- <https://github.com/amigoscode/microservices>
+
+## Running
+
+    # apply environment variables
+    source DEV.env
+
+    # build and run
+    mvn spring-boot:run
+
+2. Manually create the following databases using PGAdmin:
+
+    - `fraud`
+    - `customer`
+
+## docker (for le database)
+
+    docker-compose up -d
+    # optional below
+    docker-compose ps
+    docker-compose logs -f
+
+Then visit <http://localhost:5050/> to view PGAdmin
+
+## issues
+
+### Invalid interpolation format
+
+Your `docker-compose` version is probably old. Update with a binary from <https://github.com/docker/compose/releases>

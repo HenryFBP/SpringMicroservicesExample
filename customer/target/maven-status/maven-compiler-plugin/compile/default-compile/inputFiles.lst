@@ -1,0 +1,7 @@
+/home/vagrant/Git/VirtualMachineConfigs/etc/spring-cloud-msvcs-example/customer/src/main/java/net/henrypost/customer/CustomerController.java
+/home/vagrant/Git/VirtualMachineConfigs/etc/spring-cloud-msvcs-example/customer/src/main/java/net/henrypost/customer/model/rest/CustomerRegistrationResponse.java
+/home/vagrant/Git/VirtualMachineConfigs/etc/spring-cloud-msvcs-example/customer/src/main/java/net/henrypost/customer/CustomerApp.java
+/home/vagrant/Git/VirtualMachineConfigs/etc/spring-cloud-msvcs-example/customer/src/main/java/net/henrypost/customer/model/rest/CustomerRegistrationRequest.java
+/home/vagrant/Git/VirtualMachineConfigs/etc/spring-cloud-msvcs-example/customer/src/main/java/net/henrypost/customer/CustomerRepository.java
+/home/vagrant/Git/VirtualMachineConfigs/etc/spring-cloud-msvcs-example/customer/src/main/java/net/henrypost/customer/CustomerService.java
+/home/vagrant/Git/VirtualMachineConfigs/etc/spring-cloud-msvcs-example/customer/src/main/java/net/henrypost/customer/model/pojo/Customer.java

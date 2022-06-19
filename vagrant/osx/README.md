@@ -1,1 +1,0 @@
-https://app.vagrantup.com/VMR/boxes/MacOS_Catalina-R

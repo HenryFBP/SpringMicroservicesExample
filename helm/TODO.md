@@ -1,1 +1,0 @@
-https://blog.crunchydata.com/blog/creating-a-postgresql-cluster-using-helm-for-kubernetes
