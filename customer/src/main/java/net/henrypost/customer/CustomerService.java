@@ -2,6 +2,7 @@ package net.henrypost.customer;
 
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import net.henrypost.customer.model.jpa.Customer;
 import net.henrypost.customer.model.rest.CustomerRegistrationRequest;
 import net.henrypost.customer.model.rest.FraudCheckResponse;
@@ -10,10 +11,12 @@ import org.springframework.web.client.RestTemplate;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
     private final RestTemplate restTemplate;
+
     public Customer registerCustomer(CustomerRegistrationRequest customerRegistrationRequest) {
 
         Customer customer = Customer
@@ -41,8 +44,8 @@ public class CustomerService {
         );
 
         assert fraudCheckResponse != null;
-        if(fraudCheckResponse.isFraudster()){
-            throw  new IllegalStateException("fraudster: "+customer.toString());
+        if (fraudCheckResponse.isFraudster()) {
+            CustomerService.log.info("warning - fraudster: {}", customer);
         }
 
         //todo send notification

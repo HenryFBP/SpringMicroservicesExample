@@ -19,15 +19,15 @@ public class FraudCheckService {
 
     public boolean isFraudster(Integer customerID) {
 
-        fraudCheckHistoryRepository.save(
-                FraudCheckHistory
-                        .builder()
-                        .created(LocalDateTime.now())
-                        .customerId(customerID)
-                        .isFraudster(dummyRandFraudDetector())
-                        .build()
-        );
+        FraudCheckHistory h = FraudCheckHistory
+                .builder()
+                .created(LocalDateTime.now())
+                .customerId(customerID)
+                .isFraudster(dummyRandFraudDetector())
+                .build();
 
-        return false;
+        fraudCheckHistoryRepository.save(h);
+
+        return h.isFraudster();
     }
 }
