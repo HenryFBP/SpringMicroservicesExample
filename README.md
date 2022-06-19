@@ -9,25 +9,30 @@ taken from amigoscode with <3
 
 ## Running
 
-    # apply environment variables
-    source DEV.env
-
-    # build and run
-    mvn spring-boot:run
-
-2. Manually create the following databases using PGAdmin:
-
-    - `fraud`
-    - `customer`
-
-## docker (for le database)
+### docker (for le database)
 
     docker-compose up -d
     # optional below
     docker-compose ps
     docker-compose logs -f
 
+2. Manually create the following databases using PGAdmin:
+
+   - `fraud`
+   - `customer`
+
+
 Then visit <http://localhost:5050/> to view PGAdmin
+
+### spring app
+
+    # apply environment variables
+    source DEV.env
+
+    # build and run
+    mvn spring-boot:run
+
+or use intellij idea to run :3c
 
 ## issues
 
