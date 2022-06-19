@@ -12,5 +12,5 @@ import java.util.List;
 public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
     @Query("SELECT c FROM Customer c WHERE c.email = :email")
-    List<Customer> findCustomerByEmail(@Param("email")String email);
+    List<Customer> findCustomerByEmail(@Param("email") String email);
 }

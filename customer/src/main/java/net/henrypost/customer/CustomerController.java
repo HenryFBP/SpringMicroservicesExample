@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import net.henrypost.customer.model.jpa.Customer;
 import net.henrypost.customer.model.rest.CustomerRegistrationRequest;
 import net.henrypost.customer.model.rest.CustomerRegistrationResponse;
+import net.henrypost.customer.util.EmailValidator;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,8 +31,15 @@ public class CustomerController {
                     .build();
         }
 
+        if(!EmailValidator.isEmailValid(customerRegistrationRequest.email())){
+            return CustomerRegistrationResponse
+                    .builder()
+                    .message("Error: Email %s is invalid.".formatted(customerRegistrationRequest.email()))
+                    .code(400)z
+                    .build();
+        }
 
-            Customer c = this.customerService.registerCustomer(customerRegistrationRequest);
+        Customer c = this.customerService.registerCustomer(customerRegistrationRequest);
 
         CustomerController.log.info("new customer registered {}", customerRegistrationRequest);
 
