@@ -2,9 +2,9 @@
 
 taken from amigoscode with <3
 
-![https://www.youtube.com/watch?v=p485kUNpPvE&list=PLwvrYc43l1Mwqpf9i-1B1gXfMeHOm6DeY](./img/microservice-archi.png)
+![https://www.youtube.com/playlist?list=PLwvrYc43l1Mwqpf9i-1B1gXfMeHOm6DeY](./img/microservice-archi.png)
 
-- <https://www.youtube.com/watch?v=p485kUNpPvE&list=PLwvrYc43l1Mwqpf9i-1B1gXfMeHOm6DeY>
+- <https://www.youtube.com/playlist?list=PLwvrYc43l1Mwqpf9i-1B1gXfMeHOm6DeY>
 - <https://github.com/amigoscode/microservices>
 
 ## Running
