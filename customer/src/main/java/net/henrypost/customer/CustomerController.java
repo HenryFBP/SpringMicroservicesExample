@@ -35,7 +35,7 @@ public class CustomerController {
             return CustomerRegistrationResponse
                     .builder()
                     .message("Error: Email %s is invalid.".formatted(customerRegistrationRequest.email()))
-                    .code(400)z
+                    .code(400)
                     .build();
         }
 
