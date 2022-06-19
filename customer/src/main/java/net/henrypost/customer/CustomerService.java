@@ -38,7 +38,7 @@ public class CustomerService {
 
         //check if fraudster
         FraudCheckResponse fraudCheckResponse = this.restTemplate.getForObject(
-                "http://FRAUD/api/v1/fraud-check/{cid}",
+                "http://fraud/api/v1/fraud-check/{cid}",
                 FraudCheckResponse.class,
                 customer.getId()
         );
