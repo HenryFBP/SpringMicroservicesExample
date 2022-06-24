@@ -2,7 +2,7 @@ package net.henrypost.customer.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import net.henrypost.customer.CustomerService;
+import net.henrypost.customer.service.CustomerService;
 import net.henrypost.customer.model.jpa.Customer;
 import net.henrypost.customer.model.rest.CustomerRegistrationRequest;
 import net.henrypost.customer.model.rest.CustomerRegistrationResponse;
@@ -36,7 +36,7 @@ public class CustomerController {
                     .build();
         }
 
-        if (!EmailValidator.isEmailValid(customerRegistrationRequest.email())) {
+        if (EmailValidator.isEmailInvalid(customerRegistrationRequest.email())) {
             return CustomerRegistrationResponse
                     .builder()
                     .message("Error: Email %s is invalid.".formatted(customerRegistrationRequest.email()))

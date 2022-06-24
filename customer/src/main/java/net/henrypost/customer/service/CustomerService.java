@@ -1,13 +1,12 @@
-package net.henrypost.customer;
+package net.henrypost.customer.service;
 
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.henrypost.customer.model.jpa.Customer;
 import net.henrypost.customer.model.rest.CustomerRegistrationRequest;
 import net.henrypost.customer.model.rest.FraudCheckResponse;
+import net.henrypost.customer.repository.CustomerRepository;
 import net.henrypost.customer.util.EmailValidator;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -36,7 +35,7 @@ public class CustomerService {
 
 
         //valid email
-        if (!EmailValidator.isEmailValid(customer.getEmail())) {
+        if (EmailValidator.isEmailInvalid(customer.getEmail())) {
             throw new IllegalArgumentException("Error! Email is invalid.");
         }
 
