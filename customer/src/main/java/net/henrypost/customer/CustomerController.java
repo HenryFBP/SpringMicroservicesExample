@@ -20,7 +20,8 @@ public class CustomerController {
     private final CustomerService customerService;
 
     @PostMapping
-    public CustomerRegistrationResponse registerCustomer(@RequestBody CustomerRegistrationRequest customerRegistrationRequest) {
+    public CustomerRegistrationResponse registerCustomer(
+            @RequestBody CustomerRegistrationRequest customerRegistrationRequest) {
 
 
         if(this.customerService.isEmailTaken(customerRegistrationRequest.email())){

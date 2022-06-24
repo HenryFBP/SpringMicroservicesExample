@@ -22,7 +22,9 @@ taken from amigoscode with <3
    - `customer`
 
 
-Then visit <http://localhost:5050/> to view PGAdmin
+Then visit <http://localhost:5050/> to view PGAdmin.
+
+Note the hostname is "postgres" (coming from the docker network) - not localhost.
 
 ### spring app
 
