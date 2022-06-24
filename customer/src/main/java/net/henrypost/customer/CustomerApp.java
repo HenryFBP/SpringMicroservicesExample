@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableEurekaClient
+//@EntityScan("net.henrypost.customer.model.jpa")
 public class CustomerApp {
     public static void main(String[] args) {
         SpringApplication.run(CustomerApp.class, args);

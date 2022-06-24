@@ -21,6 +21,8 @@ public class Customer {
     Long id;
     String firstName;
     String lastName;
+
+    @Column(unique = true)
     String email;
 
 }

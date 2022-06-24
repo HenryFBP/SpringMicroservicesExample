@@ -36,6 +36,14 @@ Note the hostname is "postgres" (coming from the docker network) - not localhost
 
 or use intellij idea to run :3c
 
+#### urls
+
+Customer: <http://localhost:8090/>
+
+### frontend
+
+see [./amigoscodefrontend/](./amigoscodefrontend/)
+
 ## issues
 
 ### Invalid interpolation format

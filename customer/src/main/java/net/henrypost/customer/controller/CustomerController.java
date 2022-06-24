@@ -1,15 +1,13 @@
-package net.henrypost.customer;
+package net.henrypost.customer.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import net.henrypost.customer.CustomerService;
 import net.henrypost.customer.model.jpa.Customer;
 import net.henrypost.customer.model.rest.CustomerRegistrationRequest;
 import net.henrypost.customer.model.rest.CustomerRegistrationResponse;
 import net.henrypost.customer.util.EmailValidator;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
@@ -19,12 +17,18 @@ public class CustomerController {
 
     private final CustomerService customerService;
 
-    @PostMapping
+
+    @GetMapping("/")
+    public String index() {
+        return "Welcome to %s index".formatted(this.getClass().getSimpleName());
+    }
+
+    @PostMapping("/registerCustomer")
     public CustomerRegistrationResponse registerCustomer(
             @RequestBody CustomerRegistrationRequest customerRegistrationRequest) {
 
 
-        if(this.customerService.isEmailTaken(customerRegistrationRequest.email())){
+        if (this.customerService.isEmailTaken(customerRegistrationRequest.email())) {
             return CustomerRegistrationResponse
                     .builder()
                     .message("Error: Email %s is taken.".formatted(customerRegistrationRequest.email()))
@@ -32,7 +36,7 @@ public class CustomerController {
                     .build();
         }
 
-        if(!EmailValidator.isEmailValid(customerRegistrationRequest.email())){
+        if (!EmailValidator.isEmailValid(customerRegistrationRequest.email())) {
             return CustomerRegistrationResponse
                     .builder()
                     .message("Error: Email %s is invalid.".formatted(customerRegistrationRequest.email()))
