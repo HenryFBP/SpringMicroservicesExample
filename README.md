@@ -12,15 +12,15 @@ taken from amigoscode with <3
 ### docker (for le database)
 
     docker-compose up -d
+
+    # create dbs
+    docker-compose exec postgres createdb --username=amigoscode customer
+    docker-compose exec postgres createdb --username=amigoscode fraud
+    docker-compose exec postgres createdb --username=amigoscode notification
+
     # optional below
     docker-compose ps
     docker-compose logs -f
-
-2. Manually create the following databases using PGAdmin:
-
-   - `fraud`
-   - `customer`
-
 
 Then visit <http://localhost:5050/> to view PGAdmin.
 
