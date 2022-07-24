@@ -9,7 +9,7 @@ taken from amigoscode with <3
 
 ## Running
 
-### docker (for le database)
+### docker (for the database)
 
     docker-compose up -d
 
